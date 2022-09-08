@@ -1,8 +1,20 @@
+import time
 def mine_block(last_block, data):
      """
      Mine a block based on the given last_block and data.
      """
 
+   timestamp = time.time_ns()
+   last_hash = last_block.hash
+   hash = f '{timestamp} - {last_hash}'
+   
+   return Block(timestamp, last_hash, hash, data)
+
+def genesis():
+     '''
+     Generate the genesis block.
+     '''
+     return Block(1, 'genesis_last_hash', 'genesis_hash', [])
 
 class Block:
     '''
